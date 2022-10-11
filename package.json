@@ -1,0 +1,24 @@
+{
+  "name": "letshop",
+  "version": "1.0.0",
+  "description": "MERN shapping cart app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gus199/letshop.git"
+  
+  },
+  "author": "Amar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gus199/letshop/issues"
+  },
+  "homepage": "https://github.com/Gus199/letshop#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
