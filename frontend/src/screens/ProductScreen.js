@@ -17,12 +17,8 @@ const ProductScreen = () => {
      setProduct(data)
     }
     fetchProduct()
- }, [])
+ }, [params])
  
-
-
-  // const product = products.find((p) => p._id === params.id);
-
   return (
     <>
       <Link className='btn btn-light my-3' to='/'>
