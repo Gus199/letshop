@@ -2,15 +2,10 @@ import express from 'express'
 import dotenv from 'dotenv'
 import colors from 'colors'
 import connectDB from './config/db.js'
-import { notFound, errorHandler } from './middleware/errorMiddleware.js'
-
-
+import { notFound, errorHandler } from './middleware/errorMidleware.js'
+import userRoutes from './routes/userRoutes.js'
+import orderRoutes from './routes/orderRoutes.js'
 import productRoutes from './routes/productRoutes.js'
-import e from 'express'
-
-
-
-
 
 
 dotenv.config()
@@ -22,7 +17,23 @@ const app = express()
 app.get('/', (req, res) => {
     res.send('API is running....')
 })
+
+// Routes
 app.use('/api/products', productRoutes)
+app.use('/api/users', userRoutes)
+app.use('/api/orders', orderRoutes)
+
+// Serve Frontend 
+if(process.env.NODE_ENV === 'production') {
+    // Set build folder as static
+    app.use(express.static(path.join(__dirname, '../frontend/build')))
+
+    app.get('*', (req, res) => res.sendFile(__dirname, '../', 'frondend', 'build', 'index.html'))
+} else {
+    app.get('/', (req, res) => {
+        res.status(201).json({message:'Welcome to the Inventory API'})
+    })
+}
 
 app.use(notFound)
 app.use(errorHandler)
