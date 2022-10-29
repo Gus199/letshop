@@ -6,7 +6,7 @@ import { Row, Col, Image, ListGroup, Card, Button,  } from 'react-bootstrap';
 import Rating from '../components/Rating';
 
 
-const ProductScreen = () => {
+const ProductsDetails = () => {
   const params = useParams();
   const [product, setProduct] = useState({})
 
@@ -82,4 +82,4 @@ const ProductScreen = () => {
   );
 };
 
-export default ProductScreen;
+export default ProductsDetails;
